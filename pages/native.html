@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Native JS Reactivity</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Native JS Reactivity</h1>
+  <a href="/">go back</a>
+  <div>
+    <h3>
+      Counter
+    </h3>
+    <p>Counter value: <span id="counterHtml"></span></p>
+    <button id="sub"> -1 </button>
+    <button id="add"> +1 </button>
+  </div>
+
+  <script>
+    const counterHtml = document.getElementById('counterHtml')
+
+    let counterValue = 0
+
+    const addBtn = document.getElementById('add')
+    const subBtn = document.getElementById('sub')
+
+    function add() {
+      counterValue++
+      updateText()
+    }
+
+    function sub() {
+      counterValue--
+      updateText()
+    }
+
+    addBtn.addEventListener('click', add)
+    subBtn.addEventListener('click', sub)
+
+    function updateText() {
+      counterHtml.innerText = counterValue
+    } 
+    // mounted
+    updateText()
+  </script>
+
+  <div class="code">
+const counterHtml = document.getElementById('counterHtml')
+
+let counterValue = 0
+
+const addBtn = document.getElementById('add')
+const subBtn = document.getElementById('sub')
+
+function add() {
+  counterValue++
+  updateText()
+}
+
+function sub() {
+  counterValue--
+  updateText()
+}
+
+addBtn.addEventListener('click', add)
+subBtn.addEventListener('click', sub)
+
+function updateText() {
+  counterHtml.innerText = counterValue
+} 
+// mounted
+updateText()
+  </div>
+</body>
+</html>
