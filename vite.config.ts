@@ -1,16 +1,21 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-  root: '.',
-  build: {
-    rollupOptions: {
-      input: {
-        index: './index.html',
-        native: './pages/native.html',
-        'preact-signals': './.html',
-        'vue-ref': './pages/vue-ref.html',
-        'jsx-preact': './pages/jsx-preact.html',
+export default defineConfig(({ mode }) => {
+  const base = mode === 'production' ? 'https://mgvts.github.io/web-reactivity/' : '/';
+
+  return {
+    root: '.',
+    base,
+    build: {
+      rollupOptions: {
+        input: {
+          index: './index.html',
+          native: './pages/native.html',
+          'native-proxy': './pages/native-proxy.html',
+          'vue-ref': './pages/vue-ref.html',
+          'preact-signal': './pages/jsx-preact.html',
+        },
       },
     },
-  },
-});
+  }
+})
