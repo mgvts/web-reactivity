@@ -18,7 +18,7 @@
     <h3>
       Counter
     </h3>
-    <p>Counter value: <span id="counterHtml"></span></p>
+    <p>Counter value: <span id="counterHtml">0</span></p>
     <button id="sub"> -1 </button>
     <button id="add"> +1 </button>
   </div>
@@ -47,8 +47,6 @@
     function updateText() {
       counterHtml.innerText = counterValue
     } 
-    // mounted
-    updateText()
   </script>
 </body>
 </html>
