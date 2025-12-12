@@ -40,22 +40,20 @@ Vue3 Compositions Api
 ```vue
 <script setup>
 const num1 = ref(0)
-const num1 = ref(0)
+const num2 = ref(0)
 const result = computed(() => num1.value + num2.value)
 </script>
 
 <template>
-  <div id="app" class="counter">
+  <div class="counter">
     <h2>Сложение двух чисел</h2>
     <input
       type="number"
-      value="num1"
-      @change={(e) => num1 = +e.target.value}
+      v-model="num1"
     />
     <input
       type="number"
-      value={num2}
-      onChange={(e) => num2 = +e.target.value}
+      v-model="num2"
     />
     <p>Сумма: {{ result }}</p>
   </div>
