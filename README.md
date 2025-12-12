@@ -57,10 +57,10 @@ const handleSub = () => count.value-- // логика
 preact/signals + jsx
 ```jsx
 function Counter() {
-  const count = useSignal(0) // храним состояние
+  const [count, setCount] = useState(0) // храним состояние
 
-  const handleSub = () => count.value-- // логика
-  const handleSub = () => count.value++ // логика
+  const handleSub = () => setCount(count - 1) // логика
+  const handleSub = () => setCount(count + 1) // логика
 
   return (
     <div id="app" class="counter">
