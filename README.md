@@ -54,21 +54,34 @@ const handleSub = () => count.value-- // логика
 </template>
 ```
 
-preact/signals + jsx
+react hooks + jsx
 ```jsx
-function Counter() {
-  const [count, setCount] = useState(0) // храним состояние
+function SumTwoNumbers() {
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [result, setResult] = useState(0);
 
-  const handleSub = () => setCount(count - 1) // логика
-  const handleSub = () => setCount(count + 1) // логика
+  useEffect(() => {
+    const number1 = +num1
+    const number2 = +num2
+    setResult(number1 + number2);
+  }, [num1, num2]);
 
   return (
-    <div id="app" class="counter">
-      <h3>Counter</h3>
-      <p>Counter value: { count }</p>
-      <button id="sub" onClick={handleSub}> -1 </button>
-      <button id="add" onClick={handleAdd}> +1 </button>
+    <div>
+      <h2>Сложение двух чисел</h2>
+      <input
+        type="number"
+        value={num1}
+        onChange={(e) => setNum1(e.target.value)}
+      />
+      <input
+        type="number"
+        value={num2}
+        onChange={(e) => setNum2(e.target.value)}
+      />
+      <p>Сумма: {result}</p>
     </div>
-  )
+  );
 }
 ```
