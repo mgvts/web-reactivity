@@ -15,21 +15,31 @@
   </div>
 
   <div id="app" class="counter">
-    <h3>Counter</h3>
-    <p>Counter value: {{ count }}</p>
-    <button id="sub" @click="count--"> -1 </button>
-    <button id="add" @click="count++"> +1 </button>
+    <h2>Сложение двух чисел</h2>
+    <input
+      type="number"
+      v-model="num1"
+    />
+    <input
+      type="number"
+      v-model="num2"
+    />
+    <p>Сумма: {{ result }}</p>
   </div>
 
   <script>
-    const { createApp, ref } = Vue
+    const { createApp, ref, computed } = Vue
 
     createApp({
       setup() {
-        const count = ref(0)
+        const num1 = ref(0)
+        const num2 = ref(0)
+        const result = computed(() => num1.value + num2.value)
 
         return {
-          count,
+          num1,
+          num2,
+          result,
         }
       }
     }).mount('#app')
