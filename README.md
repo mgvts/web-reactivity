@@ -12,6 +12,21 @@ addBtn.addEventListener('click', () => {
 })
 ```
 
+proxy snippet
+```js
+const handler = {
+  get(target, prop, receiver) {
+    if (prop === "secret") {
+      return `${target.secret.substring(0, 4)}***`;
+    }
+    return Reflect.get(...arguments);
+  },
+};
+
+const proxy = new Proxy({ secret: 'qwerty123' }, handler)
+console.log(proxy.secret) // qwer***
+```
+
 Вынесем часть логики
 ```js
 // ререндер
