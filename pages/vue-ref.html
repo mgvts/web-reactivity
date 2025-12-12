@@ -9,38 +9,16 @@
 
 </head>
 <body>
-  <h1>Vue Ref Reactivity</h1>
-  <a href="../">go back</a>
-  <div id="app">
+  <div class="link">
+    <h1>Vue Ref Reactivity</h1>
+    <a href="../">go back</a>
+  </div>
+
+  <div id="app" class="counter">
     <h3>Counter</h3>
     <p>Counter value: {{ count }}</p>
-    <button @click="count--"> -1 </button>
-    <button @click="count++"> +1 </button>
-  </div>
-
-  <div class="code">
-// template
-&lt;div id="app"&gt;  
-  &lt;h3&gt;Counter&lt;/h3&gt;
-  &lt;p&gt;Counter value: {{ count }}&lt;/p&gt;
-  &lt;button @click="count--"&gt; -1 &lt;/button&gt;
-  &lt;button @click="count++"&gt; +1 &lt;/button&gt;
-&lt;/div&gt;
-  </div>
-
-  <div class="code">
-//script
-const { createApp, ref } = Vue
-
-createApp({
-  setup() {
-    const count = ref(0)
-
-    return {
-      count,
-    }
-  }
-}).mount('#app')
+    <button id="sub" @click="count--"> -1 </button>
+    <button id="add" @click="count++"> +1 </button>
   </div>
 
   <script>

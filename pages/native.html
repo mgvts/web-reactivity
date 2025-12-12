@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Native JS Reactivity</h1>
-  <a href="../">go back</a>
-  <div>
+  <body>
+    <div class="link">
+      <h1>Native JS Reactivity</h1>
+      <a href="../">go back</a>
+    </div>
+
+  </body>
+  <div class="counter">
     <h3>
       Counter
     </h3>
@@ -45,33 +50,5 @@
     // mounted
     updateText()
   </script>
-
-  <div class="code">
-const counterHtml = document.getElementById('counterHtml')
-
-let counterValue = 0
-
-const addBtn = document.getElementById('add')
-const subBtn = document.getElementById('sub')
-
-function add() {
-  counterValue++
-  updateText()
-}
-
-function sub() {
-  counterValue--
-  updateText()
-}
-
-addBtn.addEventListener('click', add)
-subBtn.addEventListener('click', sub)
-
-function updateText() {
-  counterHtml.innerText = counterValue
-} 
-// mounted
-updateText()
-  </div>
 </body>
 </html>

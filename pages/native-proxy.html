@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <h1>Native Proxy JS Reactivity</h1>
-  <a href="../">go back</a>
-  <div>
+  <div class="link">
+    <h1>Native Proxy JS Reactivity</h1>
+    <a href="../">go back</a>
+  </div>
+  <div class="counter">
     <h3>
       Counter
     </h3>
@@ -48,36 +50,5 @@
     // mounted
     updateText()
   </script>
-
-  <div class="code">
-const counterHtml = document.getElementById('counter')
-const proxyHandler = {
-  set(target, key, value) {
-    Reflect.set(...arguments)
-    if (key === 'value') updateText()
-    return true
-  }
-}
-
-let counter = new Proxy(
-  { 
-    value: 0,
-  },
-  proxyHandler
-)
-
-const add = document.getElementById('add')
-const sub = document.getElementById('sub')
-
-add.addEventListener('click', () => counter.value++)
-
-sub.addEventListener('click',  () => counter.value--)
-
-function updateText() {
-  counterHtml.innerText = counter.value
-} 
-// mounted
-updateText()
-  </div>
 </body>
 </html>

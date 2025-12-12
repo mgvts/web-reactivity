@@ -16,8 +16,10 @@
 
   </head>
   <body>
-    <h1>Preact Signals Reactivity</h1>
-    <a href="../">go back</a>
+    <div class="link">
+      <h1>Preact Signals Reactivity</h1>
+      <a href="../">go back</a>
+    </div>
     <div id="app"></div>
 
     <script type="module">
@@ -31,39 +33,16 @@
         const count = useSignal(0)
 
         return html`
-          <div>
+          <div class="counter">
             <h3>Counter</h3>
             <p>Counter value: ${count.value}</p>
-            <button onClick=${() => count.value--}>-1</button>
-            <button onClick=${() => count.value++}>+1</button>
+            <button id="sub" onClick=${() => count.value--}>-1</button>
+            <button id="add" onClick=${() => count.value++}>+1</button>
           </div>
         `;
       }
 
       render(html`<${App} />`, document.getElementById("app"))
     </script>
-
-    <div class="code">
-import { h, render } from "preact"
-import { useSignal } from "@preact/signals"
-import htm from "htm"
-
-const html = htm.bind(h)
-
-function App() {
-  const count = useSignal(0)
-
-  return html`
-    &lt;div>
-      &lt;h3>Counter&lt;/h3&gt;
-      &lt;p>Counter value: ${count.value}&lt;/p&gt;
-      &lt;button onClick=${() => count.value--}&gt;-1&lt;/button&gt;
-      &lt;button onClick=${() => count.value++}&gt;+1&lt;/button&gt;
-    &lt;/div&gt;
-  `;
-}
-
-render(html`<${App} />`, document.getElementById("app"))
-    </div>
   </body>
 </html>
